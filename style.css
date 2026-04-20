@@ -1,0 +1,18 @@
+/* 1. UNIVERSAL SELECTOR (*) */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* colors for the entire page */
+body {
+  background-color: #eaff00;
+  color: #333;
+}
+/* color and stuff for the header */
+header {
+  background-color: #4a6c2f;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
