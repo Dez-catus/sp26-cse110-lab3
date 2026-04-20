@@ -4,15 +4,33 @@
   margin: 0;
   padding: 0;
 }
+/* fancy font for the header */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* 2. Some variables and fall backs */
+:root {
+  --primary-color: #d8544f; /* Pomodoro Red */
+  --secondary-color: #000000;
+  --text-color: #333;
+  --bg-light: #0ca704;
+  --font-main: 'Roboto', sans-serif; /* 3rd Party Font */
+}
 /* colors for the entire page */
 body {
-  background-color: #eaff00;
-  color: #333;
+  font-family: var(--font-main, Arial); /* Fallback */
+  background-color: var(--bg-light);
+  color: var(--secondary-color);
+  line-height: 1.6;
 }
 /* color and stuff for the header */
 header {
-  background-color: #4a6c2f;
+  background-color: var(--secondary-color);
   color: #fff;
   padding: 20px;
   text-align: center;
 }
+
+h1, h2, h3 { color: var(--primary-color); } /* Selector  */
+#attendance { background: white; }           /* ID  */
+.subtitle { font-style: italic; }          /* Class */
+
