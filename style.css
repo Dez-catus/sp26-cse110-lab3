@@ -9,8 +9,8 @@
 
 /* 2. Some variables and fall backs */
 :root {
-  --primary-color: #d8544f; /* Pomodoro Red */
-  --secondary-color: #000000;
+  --primary-color: color(display-p3 1 0 0);; /* Pomodoro Red */
+  --secondary-color: hsla(0, 0%, 0%, 0.5); /* Semi-transparent black */
   --text-color: #333;
   --bg-light: #0ca704;
   --font-main: 'Roboto', sans-serif; /* 3rd Party Font */
@@ -31,7 +31,7 @@ header {
 }
 
 h1, h2, h3 { color: var(--primary-color); } /* Selector  */
-#attendance { background: white; }           /* ID  */
+#attendance { background: color-mix(in display-p3, color(display-p3 1 0 0), white 40%); }           /* ID  */
 .subtitle { font-style: italic; }          /* Class */
 /* Units */
 main {
@@ -56,7 +56,7 @@ section {
   /* Border: Longhand */
   border-style: solid;
   border-width: 1px;
-  border-color: #ddd;
+  border-color: rgba(0, 0, 0, 0.1);
   /* Border: Shorthand */
   border-bottom: 3px solid var(--primary-color);
   border-radius: 10px;
@@ -138,4 +138,11 @@ form {
     #action-items ul {
         grid-template-columns: 1fr;
     }
+}
+
+footer {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  background-color: var(--primary-color);
+  border: 1px solid rgb(0, 0, 0);
 }
