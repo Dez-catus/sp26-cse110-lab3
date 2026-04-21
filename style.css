@@ -80,3 +80,56 @@ nav a {
   color: var(--primary-color);
   padding: 5px 10px;
 }
+
+/* 9. Psuedo-classes */
+nav a:hover { background: #eee; }
+button:active { transform: scale(0.98); }
+
+/* 10. COMBINATORS */
+header p span { font-weight: bold; }        /* Descendant */
+section > h2 { text-transform: uppercase; } /* Child */
+h2 + p { margin-top: 0; }                   /* Adjacent Sibling */
+hr ~ footer { opacity: 0.7; }                /* General Sibling */
+input[type="text"] { border: 1px solid #999; } /* Attribute Selector */
+p.special { color: green; }                  /* Combining two (element.class) */
+
+/* 11. FLEXBOX  */
+#attendance ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  gap: 15px;
+}
+
+/* 12. GRID  */
+#action-items ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  list-style: none;
+}
+
+/* 13. Modern Selectors */
+
+/* :has() Selector: */
+section:has(form) {
+  background-color: #fff4f4;
+  border: 2px dashed var(--primary-color);
+}
+
+/* NESTED SELECTORS: Style the form and its elements */
+form {
+  & .checkbox-group {
+    display: flex;       /* Use Flexbox */
+    align-items: center;  /* Vertically centers items in the row */
+    gap: 10px;           /* Space between box and text */
+    margin-bottom: 10px; 
+  }
+
+  & input[type="checkbox"] {
+    margin: 0; /* Remove default browser margins that cause offsets */
+    cursor: pointer;
+  }
+}
