@@ -4,15 +4,145 @@
   margin: 0;
   padding: 0;
 }
+/* fancy font for the header */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* 2. Some variables and fall backs */
+:root {
+  --primary-color: color(display-p3 1 0 0); /* Pomodoro Red */
+  --secondary-color: hsla(0, 0%, 0%, 0.5); /* Semi-transparent black */
+  --text-color: #333;
+  --bg-light: #0ca704;
+  --font-main: 'Roboto', sans-serif; /* 3rd Party Font */
+}
 /* colors for the entire page */
 body {
-  background-color: #eaff00;
-  color: #333;
+  font-family: var(--font-main, Arial); /* Fallback */
+  background-color: var(--bg-light);
+  color: var(--secondary-color);
+  line-height: 1.6;
 }
 /* color and stuff for the header */
 header {
-  background-color: #4a6c2f;
+  background-color: var(--secondary-color);
   color: #fff;
   padding: 20px;
   text-align: center;
+}
+
+h1, h2, h3 { color: var(--primary-color); } /* Selector  */
+#attendance { background: color-mix(in display-p3, color(display-p3 1 0 0), white 40%); }           /* ID  */
+.subtitle { font-style: italic; }          /* Class */
+/* Units */
+main {
+  padding: 2rem;       /* Relative  */
+  min-height: 80vh;    /* Relative  */
+  width: 90%;          /* Relative  */
+  max-width: 800px;    /* Absolute  */
+  margin: 0.5in auto;  /* Absolute  */
+  font-size: 12pt;     /* Absolute  */
+}
+/* Box model stuff */
+section {
+  /* Padding: Longhand */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* Padding: Shorthand */
+  padding: 20px 40px; 
+
+  /* Margin: Shorthand & Auto */
+  margin: 20px auto; 
+
+  /* Border: Longhand */
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
+  /* Border: Shorthand */
+  border-bottom: 3px solid var(--primary-color);
+  border-radius: 10px;
+}
+
+/* 8. Display/Postioning */
+nav {
+  position: sticky; /* Position 1 */
+  top: 0;
+  background: white;
+  display: block;   /* Display 1 */
+  z-index: 100;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+nav a {
+  display: inline-block; /* Display 2 */
+  position: relative;    /* Position 2 */
+  text-decoration: none;
+  color: var(--primary-color);
+  padding: 5px 10px;
+}
+
+/* 9. Psuedo-classes */
+nav a:hover { background: #eee; }
+button:active { transform: scale(0.98); }
+
+/* 10. COMBINATORS */
+header p span { font-weight: bold; }        /* Descendant */
+section > h2 { text-transform: uppercase; } /* Child */
+h2 + p { margin-top: 0; }                   /* Adjacent Sibling */
+hr ~ footer { opacity: 0.7; }                /* General Sibling */
+input[type="text"] { border: 1px solid #999; } /* Attribute Selector */
+p.special { color: green; }                  /* Combining two (element.class) */
+
+/* 11. FLEXBOX  */
+#attendance ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  gap: 15px;
+}
+
+/* 12. GRID  */
+#action-items ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  list-style: none;
+}
+
+/* 13. Modern Selectors */
+
+/* :has() Selector: */
+section:has(form) {
+  background-color: #fff4f4;
+  border: 2px dashed var(--primary-color);
+}
+
+/* NESTED SELECTORS: Style the form and its elements */
+form {
+  & .checkbox-group {
+    display: flex;       /* Use Flexbox */
+    align-items: center;  /* Vertically centers items in the row */
+    gap: 10px;           /* Space between box and text */
+    margin-bottom: 10px; 
+  }
+
+  & input[type="checkbox"] {
+    margin: 0; /* Remove default browser margins that cause offsets */
+    cursor: pointer;
+  }
+}
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+    #action-items ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+footer {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  background-color: var(--primary-color);
+  border: 1px solid rgb(0, 0, 0);
 }
