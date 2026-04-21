@@ -9,7 +9,7 @@
 
 /* 2. Some variables and fall backs */
 :root {
-  --primary-color: color(display-p3 1 0 0);; /* Pomodoro Red */
+  --primary-color: color(display-p3 1 0 0); /* Pomodoro Red */
   --secondary-color: hsla(0, 0%, 0%, 0.5); /* Semi-transparent black */
   --text-color: #333;
   --bg-light: #0ca704;
