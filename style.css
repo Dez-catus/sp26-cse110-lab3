@@ -133,3 +133,9 @@ form {
     cursor: pointer;
   }
 }
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+    #action-items ul {
+        grid-template-columns: 1fr;
+    }
+}
